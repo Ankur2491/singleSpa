@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://unpkg.com/single-spa"></script>
+  <script src="https://unpkg.com/single-spa-angularjs"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.2.3/system.js"></script>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "app1": "http://localhost:4201/main.js",
+        "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.5/system/single-spa.min.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.5/system/single-spa.min.js" as="script" crossorigin="anonymous" />
+  <script src='https://unpkg.com/core-js-bundle@3.1.4/minified.js'></script>
+  <script src="https://unpkg.com/zone.js"></script>
+  <script src="https://unpkg.com/import-map-overrides@1.6.0/dist/import-map-overrides.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/system.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/amd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-exports.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
+</head>
+<body>
+  <a href='#/view1'>View 1</a>
+  <a href="#/app1">Hello world app</a>
+  <div id="here"/>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+  <div>AngularJS seed app: v<span app-version></span></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="core/version/version.js"></script>
+  <script src="core/version/version-directive.js"></script>
+  <script src="core/version/interpolate-filter.js"></script>
+  <script src="single-spa.config.js"></script>
+  <script>
+    var myApp2 = {
+    bootstrap: function() {
+      return Promise.resolve()
+    },
+    mount: function() {
+      console.log("Mounted ng 8");
+      return Promise.resolve().then(function() {
+        return System.import('app1');
+      })
+    },
+    unmount: function() {
+      console.log("unmounted");
+      return Promise.resolve()
+    },
+  }
+    System.import('single-spa').then(function (singleSpa) {
+      singleSpa.registerApplication('app1',myApp2, function activityFunction(location) {
+      return location.hash.startsWith('#/app1')
+  })
+      singleSpa.start();
+    })
+  </script>
+  <import-map-overrides-full></import-map-overrides-full>
+</body>
+</html>
