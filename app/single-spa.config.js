@@ -14,12 +14,13 @@
       return Promise.resolve()
     },
     mount: function() {
+      console.log("Mounted Angular 1");
       return Promise.resolve().then(function() {
         document.getElementById('here').innerHTML = "Hello";
       })
     },
     unmount: function() {
-      console.log("unmounted");
+      console.log("unmounted Angular 1");
       return Promise.resolve()
     },
   }

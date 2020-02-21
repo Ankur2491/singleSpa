@@ -1,32 +1,27 @@
 {
-  "_args": [
-    [
-      "angular@1.7.5",
-      "/Users/ankur/Documents/projects/single_spa/angular-seed"
-    ]
-  ],
-  "_from": "angular@1.7.5",
-  "_id": "angular@1.7.5",
+  "_from": "angular@^1.7.5",
+  "_id": "angular@1.7.9",
   "_inBundle": false,
-  "_integrity": "sha512-760183yxtGzni740IBTieNuWLtPNAoMqvmC0Z62UoU0I3nqk+VJuO3JbQAXOyvo3Oy/ZsdNQwrSTh/B0OQZjNw==",
+  "_integrity": "sha512-5se7ZpcOtu0MBFlzGv5dsM1quQDoDeUTwZrWjGtTNA7O88cD8TEk5IEKCTDa3uECV9XnvKREVUr7du1ACiWGFQ==",
   "_location": "/angular",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "angular@1.7.5",
+    "raw": "angular@^1.7.5",
     "name": "angular",
     "escapedName": "angular",
-    "rawSpec": "1.7.5",
+    "rawSpec": "^1.7.5",
     "saveSpec": null,
-    "fetchSpec": "1.7.5"
+    "fetchSpec": "^1.7.5"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.5.tgz",
-  "_spec": "1.7.5",
-  "_where": "/Users/ankur/Documents/projects/single_spa/angular-seed",
+  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.9.tgz",
+  "_shasum": "e52616e8701c17724c3c238cfe4f9446fd570bc4",
+  "_spec": "angular@^1.7.5",
+  "_where": "/Users/ankur_sharma31/Documents/work/sspa/singleSpa",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"
@@ -34,6 +29,8 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "HTML enhanced for web apps",
   "homepage": "http://angularjs.org",
   "keywords": [
@@ -52,5 +49,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.7.5"
+  "version": "1.7.9"
 }
